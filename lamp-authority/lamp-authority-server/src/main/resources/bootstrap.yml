@@ -1,3 +1,6 @@
+#server:
+#  port: 8764
+
 lamp:
   swagger:
     version: @project.version@
@@ -35,10 +38,10 @@ spring:
             refresh: true
           - dataId: redis.yml
             refresh: false
-          - dataId: @db.dataId@
+          - dataId: mysql.yml
             refresh: true
-          - dataId: rabbitmq.yml
-            refresh: false
+          - dataId: mybatis.yml
+            refresh: true
         enabled: true
         username: ${lamp.nacos.username}
         password: ${lamp.nacos.password}

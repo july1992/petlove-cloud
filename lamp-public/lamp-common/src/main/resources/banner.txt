@@ -16,4 +16,4 @@ ${AnsiColor.BRIGHT_YELLOW}
 Spring Boot Version: ${spring-boot.version}
 当前服务: ${spring.application.name}   激活环境: ${spring.profiles.active}   当前版本: ${info.version}
 nacos访问地址: http://${lamp.nacos.ip}:${lamp.nacos.port}/nacos    nacos命名空间: ${lamp.nacos.namespace}
-版权和最终解释权归 ©zuihou(https://github.com/zuihou) 所有${AnsiColor.DEFAULT}
+版权和最终解释权归 ©vily(https://github.com/july1992) 所有${AnsiColor.DEFAULT}

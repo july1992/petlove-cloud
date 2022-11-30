@@ -32,6 +32,7 @@ import static top.tangyh.lamp.common.constant.BizConstant.UTIL_PACKAGE;
 @Slf4j
 public class OauthServerApplication {
     public static void main(String[] args) throws UnknownHostException {
+
         ConfigurableApplicationContext application = SpringApplication.run(OauthServerApplication.class, args);
         Environment env = application.getEnvironment();
         log.info("\n----------------------------------------------------------\n\t" +

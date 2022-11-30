@@ -1,4 +1,8 @@
-petlove:
+#server:
+#  port: 8760
+#  servlet:
+#    context-path: /api
+lamp:
   swagger:
     version: @project.version@
   nacos:
@@ -21,29 +25,33 @@ spring:
         enabled: true
       eager: true
       transport:
-        dashboard: ${petlove.sentinel.dashboard}
+        dashboard: ${lamp.sentinel.dashboard}
     nacos:
       config:
-        server-addr: ${petlove.nacos.ip}:${petlove.nacos.port}
+        server-addr: ${lamp.nacos.ip}:${lamp.nacos.port}
         file-extension: yml
-        namespace: ${petlove.nacos.namespace}
+        namespace: ${lamp.nacos.namespace}
         shared-configs:
           - dataId: common.yml
             refresh: true
           - dataId: redis.yml
             refresh: false
-          - dataId: @db.dataId@
+          - dataId: mysql.yml
             refresh: true
-          - dataId: rabbitmq.yml
-            refresh: false
+          - dataId: mybatis.yml
+            refresh: true
         enabled: true
-        username: ${petlove.nacos.username}
-        password: ${petlove.nacos.password}
+        username: ${lamp.nacos.username}
+        password: ${lamp.nacos.password}
+#        extension-configs[0]:
+#          data-id: lib-getway-dev.yml
+#          group: petlove
+#          refresh: true
       discovery:
-        username: ${petlove.nacos.username}
-        password: ${petlove.nacos.password}
-        server-addr: ${petlove.nacos.ip}:${petlove.nacos.port}
-        namespace: ${petlove.nacos.namespace}
+        username: ${lamp.nacos.username}
+        password: ${lamp.nacos.password}
+        server-addr: ${lamp.nacos.ip}:${lamp.nacos.port}
+        namespace: ${lamp.nacos.namespace}
         metadata: # 元数据，用于权限服务实时获取各个服务的所有接口
           management.context-path: ${server.servlet.context-path:}${spring.mvc.servlet.path:}${management.endpoints.web.base-path:}
           gray_version: zuihou
