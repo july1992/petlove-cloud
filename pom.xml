@@ -35,5 +35,6 @@
         <module>lamp-file</module>
         <module>lamp-gateway</module>
         <module>lamp-support</module>
+        <module>petlove-account</module>
     </modules>
 </project>

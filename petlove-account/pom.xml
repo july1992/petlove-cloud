@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>com.vily.petlove</groupId>
+        <artifactId>lamp-dependencies-parent</artifactId>
+        <version>1.0.0</version>
+        <relativePath>../lamp-dependencies-parent/pom.xml</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>petlove-account</artifactId>
+    <name>${project.artifactId}</name>
+    <description>宠物相关账号</description>
+    <modules>
+        <module>petlove-account-api</module>
+        <module>petlove-account-biz</module>
+        <module>petlove-account-controller</module>
+        <module>petlove-account-entity</module>
+        <module>petlove-account-server</module>
+    </modules>
+    <packaging>pom</packaging>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
+
+</project>

@@ -17,6 +17,7 @@ import springfox.documentation.swagger.web.SwaggerResource;
 import springfox.documentation.swagger.web.SwaggerResourcesProvider;
 
 import javax.annotation.Resource;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -25,6 +26,8 @@ import java.util.concurrent.Future;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
+import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -75,16 +78,20 @@ public class SwaggerResourceConfig implements SwaggerResourcesProvider {
             Future future = executorService.submit(() ->
                     restTemplate.getForObject("http://" + route.getUri().getHost() + SWAGGER_RESOURCES_URI, JSONArray.class)
             );
+            String add = "http://" + route.getUri().getHost() + SWAGGER_RESOURCES_URI;
+            System.out.println("------swagger--------addr:" + add);
             JSONArray list = (JSONArray) future.get();
             if (list.isEmpty()) {
                 return null;
             }
-
             List<SwaggerResource> srList = new ArrayList<>();
             for (int i = 0; i < list.size(); i++) {
                 SwaggerResource sr = list.getObject(i, SwaggerResource.class);
                 sr.setName(route.getId() + "-" + sr.getName());
                 sr.setUrl("/" + route.getId() + sr.getUrl());
+                System.out.println("------swagger--------1:" + sr.getName());
+                System.out.println("------swagger--------2:" + sr.getUrl());
+
                 srList.add(sr);
             }
 
